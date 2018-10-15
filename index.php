@@ -147,7 +147,7 @@ $app->post('/updatemoto/:id', function($id) use($app, $db){
 
         $result = array(
             'Estatus'   => 'Success',
-            'Code'      => 200,
+            'code'      => 200,
             'Message'   => 'Registo Actualizado :)!'
         );
 
@@ -155,7 +155,7 @@ $app->post('/updatemoto/:id', function($id) use($app, $db){
 
         $result = array(
             'Estatus'   => 'error',
-            'Code'      => 404,
+            'code'      => 404,
             'Message'   => 'Problema al actualizar registro :('
         );        
 
