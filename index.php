@@ -200,6 +200,44 @@ $app->get('/deletemoto/:id', function($id) use($app, $db){
 });
 
 
+// METODO PARA EL BUSCADOR
+
+$app->get('/searchp/:name', function($name) use($app, $db){
+    
+    $sql    = 'SELECT * FROM motosnuevas WHERE marca LIKE "%'.$name.'%";';
+    
+    $query  = $db->query($sql);
+
+    if($query->num_rows >= 1){
+
+        $productos = array();
+        while($producto = $query->fetch_assoc()){
+            $productos[] = $producto;
+        }
+    
+        $result = array(
+            'status' => 'success',
+            'code'   => 200,
+            'data'   => $productos
+        );
+
+
+    }else{
+
+        $result = array(
+            'status' => 'error',
+            'code'   => 400,
+            'data'   => 'No se encontro resultado'
+        );  
+
+    }
+
+    echo json_encode($result);
+    
+    
+});
+
+
 
 /* 3. METODO PARA CONSEGUIR UN PRODUCTO */
 
