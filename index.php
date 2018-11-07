@@ -7,11 +7,20 @@ include_once 'vendor/autoload.php';
 $app = new \Slim\Slim();
 
 
-// Creamos la conexion a la base de datos
+/* Creamos la conexion a la base de datos AMBIENTE LOCAL
 
 $userdb = 'root';
 $passdb = '';
 $selectdb = 'angular_api';
+
+*/
+
+// CONEXION BASE DE DATOS AMBIENTE DEPLOY
+
+$userdb = 'casile3s_restang';
+$passdb = 'yX3dZQP)wNJ9';
+$selectdb = 'casile3s_angular_api';
+
 
 $db =  new mysqli('localhost', $userdb, $passdb, $selectdb);
 
